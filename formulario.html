@@ -10,24 +10,36 @@
     <h1>Calculadora de anuncios</h1><br>
     <div class= calculadora>
         
-        <form>
-            Quantidade: 
-            <input placeholder="Ex: 1" type="number" min="1"><br>
+        <form name="f_cad" method="get" action="">
+
+            Quantidade:
+            <input placeholder="Ex: 1" type="number" name="quantidade" min="1"><br>
+
             Custo do produto:
-            <input placeholder="Ex: 15,00" type="number" min="1"><br>
+            <input placeholder="Ex: 15,00" type="number" name="produto" min="1"><br>
+            
             Imposto da NF-E:
-            <input placeholder="Ex: 4%" type="number" min="0"><br>
-            Despesas devenda:
-            <input placeholder="Ex: 5,00" type="number" min="0"><br>
+            <input placeholder="Ex: 4%" type="number" name="notaFiscal" min="0"><br>
+            
+            Despesas de venda:
+            <input placeholder="Ex: 5,00" type="number" name="despesas" min="0"><br>
+            
             Valor do frete:
-            <input placeholder=" Ex: 20,00" type="number" min="0"><br>
+            <input placeholder=" Ex: 20,00" type="number" name="frete" min="0"><br>
+            
             Tarifa Clássico:
-            <input placeholder=" Ex: 11,5%" type="number" min="1"><br>
+            <input placeholder=" Ex: 11,5%" type="number" name="classico" min="1"><br>
+            
             Tarifa Premium:
-            <input placeholder="Ex: 16,5%" type="number" min="1"><br>
+            <input placeholder="Ex: 16,5%" type="number" name="premium" min="1"><br>
+            
             Preço de venda:
-            <input placeholder="Ex: 250,00" type="number" min="1"><br>
+            <input placeholder="Ex: 250,00" type="number" name="venda" min="1"><br>
+
+
             <input type="submit" value="Calcular">
+            <input type="reset" value="Limpar">
+
         </form>
 
     </div>
