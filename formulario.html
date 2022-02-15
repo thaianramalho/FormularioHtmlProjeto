@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculo fácil</title>
+    <title>Calculadora de anúncios</title>
 </head>
 <body>
     <h1>Calculadora de anúncios</h1><br>
     <div class= calculadora>
         
-        <form name="cad" method="get" action="">
+        <form name="cad" method="POST" action="calc.php">
 
             Quantidade:
             <input placeholder="Ex: 1" type="number" name="quantidade" min="1"><br>
@@ -36,7 +36,7 @@
             Preço de venda:
             <input placeholder="Ex: 250,00" type="number" name="venda" min="1"><br>
 
-
+            <br>
             <input type="submit" value="Calcular">
             <input type="reset" value="Limpar">
 
