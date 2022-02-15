@@ -10,8 +10,15 @@ if ($_POST) {
     $premium = $_POST['premium'];
     $venda = $_POST['venda'];
 
-    $total = $quantidade + $produto + $notaFiscal + $despesas + $frete + $classico + $premium + $venda;
-    echo $total;
+    $custo = $quantidade * $produto;
+    $calculoclassico = $custo + $notaFiscal + $classico + $frete + $despesas;
+    $totalclassico = $venda - $calculoclassico;
+
+    $calculopremium = $custo + $notaFiscal + $premium + $frete + $despesas;
+    $totalpremium = $venda - $calculopremium;
+
+    echo $totalclassico;
+    echo $totalpremium;
 }
 
 
