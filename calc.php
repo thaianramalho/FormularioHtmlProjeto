@@ -11,10 +11,15 @@ if ($_POST) {
     $venda = $_POST['venda'];
 
     $custo = $quantidade * $produto;
-    $calculoclassico = $custo + $notaFiscal + $classico + $frete + $despesas;
+
+    $notaFiscalPorcentagem = ($notaFiscal / 100) * $venda;
+    $classicoPorcentagem = ($classico / 100) * $venda;
+    $premiumPorcentagem = ($premium / 100) * $venda;
+
+    $calculoclassico = $custo + $notaFiscalPorcentagem + $classicoPorcentagem + $frete + $despesas;
     $totalclassico = $venda - $calculoclassico;
 
-    $calculopremium = $custo + $notaFiscal + $premium + $frete + $despesas;
+    $calculopremium = $custo + $notaFiscalPorcentagem + $premiumPorcentagem + $frete + $despesas;
     $totalpremium = $venda - $calculopremium;
 
     echo 'Valor do anúncio Clássico: ' . $totalclassico ."<br>". 'Valor do anúncio Premium: ' . $totalpremium;
