@@ -17,8 +17,7 @@ if ($_POST) {
     $calculopremium = $custo + $notaFiscal + $premium + $frete + $despesas;
     $totalpremium = $venda - $calculopremium;
 
-    echo $totalclassico;
-    echo $totalpremium;
+    echo 'Valor do anúncio Clássico: ' . $totalclassico ."<br>". 'Valor do anúncio Premium: ' . $totalpremium;
 }
 
 
