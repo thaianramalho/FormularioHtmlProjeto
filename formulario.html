@@ -4,45 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styile.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="styile.css"/>
+
     <title>Calculadora de anúncios</title>
 </head>
 <body>
     <h1>Calculadora de anúncios</h1><br>
-    <div class= calculadora>
-        
-        <form name="cad" method="POST" action="calc.php">
+    <div class="fundo"></div>
+        <div class= calculadora>
+            
+            <form name="cad" method="POST" action="calc.php">
 
-            Quantidade:
-            <input placeholder="Ex: 1" type="number" name="quantidade" min="1"><br>
+                Quantidade:
+                <input placeholder="Ex: 1" type="number" name="quantidade" min="1"><br>
 
-            Custo do produto:
-            <input placeholder="Ex: 15,00" type="number" name="produto" min="1"><br>
-            
-            Imposto da NF-E:
-            <input placeholder="Ex: 4 (sem porcentagem)" type="number" name="notaFiscal" min="0"><br>
-            
-            Despesas de venda:
-            <input placeholder="Ex: 5,00" type="number" name="despesas" min="0"><br>
-            
-            Valor do frete:
-            <input placeholder=" Ex: 20,00" type="number" name="frete" min="0"><br>
-            
-            Tarifa Clássico:
-            <input placeholder=" Ex: 11,5 (sem porcentagem)" type="number" name="classico" min="1"><br>
-            
-            Tarifa Premium:
-            <input placeholder="Ex: 16,5 (sem porcentagem)" type="number" name="premium" min="1"><br>
-            
-            Preço de venda:
-            <input placeholder="Ex: 250,00" type="number" name="venda" min="1"><br>
+                Custo do produto:
+                <input placeholder="Ex: 15,00" type="number" name="produto" min="1"><br>
+                
+                Imposto da NF-E:
+                <input placeholder="Ex: 4 (sem porcentagem)" type="number" name="notaFiscal" min="0"><br>
+                
+                Despesas de venda:
+                <input placeholder="Ex: 5,00" type="number" name="despesas" min="0"><br>
+                
+                Valor do frete:
+                <input placeholder=" Ex: 20,00" type="number" name="frete" min="0"><br>
+                
+                Tarifa Clássico:
+                <input placeholder=" Ex: 11,5 (sem porcentagem)" type="number" name="classico" min="1"><br>
+                
+                Tarifa Premium:
+                <input placeholder="Ex: 16,5 (sem porcentagem)" type="number" name="premium" min="1"><br>
+                
+                Preço de venda:
+                <input placeholder="Ex: 250,00" type="number" name="venda" min="1"><br>
 
-            <br>
-            <input type="submit" value="Calcular">
-            <input type="reset" value="Limpar">
+                <br>
+                <input type="submit" value="Calcular">
+                <input type="reset" value="Limpar">
 
-        </form>
+            </form>
 
+        </div>
     </div>
 </body>
 </html>
