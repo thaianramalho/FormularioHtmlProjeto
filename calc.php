@@ -30,7 +30,7 @@ if ($_POST) {
     $totalpremium = $venda - $calculopremium;
 
 
-    echo 'Valor do anúncio Clássico: ' . $totalclassico ."<br>". 'Valor do anúncio Premium: ' . $totalpremium;
+    echo 'Lucro do anúncio Clássico: ' . $totalclassico ."<br>". 'Lucro do anúncio Premium: ' . $totalpremium;
 }
 
 
