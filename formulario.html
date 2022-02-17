@@ -13,37 +13,33 @@
     <div class="fundo">
         <div class= calculadora>
             <form name="cad" method="POST" action="calc.php">
-                <fieldset>
-                    <legend><h2>Calculadora de anúncios</h2></legend>
-                    <div id="inputs">
-                        Quantidade:
+                <h2>Calculadora de anúncios</h2><br>
+                        <p>Quantidade:</p>
                         <input placeholder="Ex: 1" type="number" name="quantidade" min="1"><br>
 
-                        Custo do produto:
+                        <p>Custo do produto:</p>
                         <input placeholder="Ex: 15,00" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="produto" min="1"><br>
                         
-                        Imposto da NF-E:
+                        <p>Imposto da NF-E:</p>
                         <input placeholder="Ex: 4 (sem porcentagem)" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="notaFiscal" min="0"><br>
                         
-                        Despesas:
+                        <p>Despesas:</p>
                         <input placeholder="Ex: 5,00" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="despesas" min="0"><br>
                         
-                        Valor do frete:
+                        <p>Valor do frete:</p>
                         <input placeholder=" Ex: 20,00" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="frete" min="0"><br>
                         
-                        Tarifa Clássico:
+                        <p>Tarifa Clássico:</p>
                         <input placeholder=" Ex: 11,5 (sem porcentagem)" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="classico" min="1"><br>
                         
-                        Tarifa Premium:
+                        <p>Tarifa Premium:</p>
                         <input placeholder="Ex: 16,5 (sem porcentagem)" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="premium" min="1"><br>
                         
-                        Preço de venda:
+                        <p>Preço de venda:</p>
                         <input placeholder="Ex: 250,00" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="venda" min="1"><br>
-                    </div>
                     <br>
                     <input type="submit" value="Calcular">
                     <input type="reset" value="Limpar">
-                </fieldset>
 
             </form>
 
