@@ -18,7 +18,7 @@ if ($_POST) {
         $classicoPorcentagem = ($classico / 100) * $venda + 5;
         $premiumPorcentagem = ($premium / 100) * $venda + 5;
     }
-    else if ($venda >=80) {
+    else if ($venda >=79) {
         $classicoPorcentagem = ($classico / 100) * $venda;
         $premiumPorcentagem = ($premium / 100) * $venda;
     };
