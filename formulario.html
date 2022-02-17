@@ -15,30 +15,31 @@
             <form name="cad" method="POST" action="calc.php">
                 <fieldset>
                     <legend><h2>Calculadora de anúncios</h2></legend>
+                    <div id="inputs">
+                        Quantidade:
+                        <input placeholder="Ex: 1" type="number" name="quantidade" min="1"><br>
 
-                    Quantidade:
-                    <input placeholder="Ex: 1" type="number" name="quantidade" min="1"><br>
-
-                    Custo do produto:
-                    <input placeholder="Ex: 15,00" type="number" name="produto" min="1"><br>
-                    
-                    Imposto da NF-E:
-                    <input placeholder="Ex: 4 (sem porcentagem)" type="number" name="notaFiscal" min="0"><br>
-                    
-                    Despesas:
-                    <input placeholder="Ex: 5,00" type="number" name="despesas" min="0"><br>
-                    
-                    Valor do frete:
-                    <input placeholder=" Ex: 20,00" type="number" name="frete" min="0"><br>
-                    
-                    Tarifa Clássico:
-                    <input placeholder=" Ex: 11,5 (sem porcentagem)" type="number" name="classico" min="1"><br>
-                    
-                    Tarifa Premium:
-                    <input placeholder="Ex: 16,5 (sem porcentagem)" type="number" name="premium" min="1"><br>
-                    
-                    Preço de venda:
-                    <input placeholder="Ex: 250,00" type="number" name="venda" min="1"><br>
+                        Custo do produto:
+                        <input placeholder="Ex: 15,00" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="produto" min="1"><br>
+                        
+                        Imposto da NF-E:
+                        <input placeholder="Ex: 4 (sem porcentagem)" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="notaFiscal" min="0"><br>
+                        
+                        Despesas:
+                        <input placeholder="Ex: 5,00" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="despesas" min="0"><br>
+                        
+                        Valor do frete:
+                        <input placeholder=" Ex: 20,00" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="frete" min="0"><br>
+                        
+                        Tarifa Clássico:
+                        <input placeholder=" Ex: 11,5 (sem porcentagem)" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="classico" min="1"><br>
+                        
+                        Tarifa Premium:
+                        <input placeholder="Ex: 16,5 (sem porcentagem)" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="premium" min="1"><br>
+                        
+                        Preço de venda:
+                        <input placeholder="Ex: 250,00" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="venda" min="1"><br>
+                    </div>
                     <br>
                     <input type="submit" value="Calcular">
                     <input type="reset" value="Limpar">
