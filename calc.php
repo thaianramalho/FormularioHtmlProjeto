@@ -24,13 +24,15 @@ if ($_POST) {
     };
 
     $calculoclassico = $custo + $notaFiscalPorcentagem + $classicoPorcentagem + $frete + $despesas;
-    $totalclassico = $venda - $calculoclassico;
+    $totalclassico = round($venda - $calculoclassico, 2);
 
     $calculopremium = $custo + $notaFiscalPorcentagem + $premiumPorcentagem + $frete + $despesas;
-    $totalpremium = $venda - $calculopremium;
+    $totalpremium = round($venda - $calculopremium, 2);
 
 
-    echo 'Lucro do anúncio Clássico: ' .$totalclassico ."<br>" .'Lucro do anúncio Premium: ' .$totalpremium;
+
+
+    echo 'Lucro do anúncio Clássico: R$ ' .$totalclassico ."<br>" .'Lucro do anúncio Premium: R$ ' .$totalpremium;
 }
 
 
