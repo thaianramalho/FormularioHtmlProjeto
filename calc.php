@@ -1,6 +1,5 @@
 <?php
 include ("./formulario.html");
-if ($_POST) {
     $quantidade = $_POST['quantidade'];
     $produto = $_POST['produto'];
     $notaFiscal = $_POST['notaFiscal'];
@@ -29,11 +28,6 @@ if ($_POST) {
     $calculopremium = $custo + $notaFiscalPorcentagem + $premiumPorcentagem + $frete + $despesas;
     $totalpremium = round($venda - $calculopremium, 2);
 
-
-
-
-    echo 'Lucro do anúncio Clássico: R$ ' .$totalclassico ."<br>" .'Lucro do anúncio Premium: R$ ' .$totalpremium;
-}
-
-
+    $resultado = 'Lucro do anúncio Clássico: R$ ' .$totalclassico ."<br>" .'Lucro do anúncio Premium: R$ ' .$totalpremium;
+    echo $resultado
 ?>
