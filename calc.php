@@ -29,5 +29,5 @@ include ("./formulario.html");
     $totalpremium = round($venda - $calculopremium, 2);
 
     $resultado = 'Lucro do anúncio Clássico: R$ ' .$totalclassico ."<br>" .'Lucro do anúncio Premium: R$ ' .$totalpremium;
-    echo $resultado
+    echo $resultado;
 ?>
