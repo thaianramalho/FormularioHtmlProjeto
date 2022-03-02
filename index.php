@@ -67,25 +67,25 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
                 <input placeholder="Ex: 1" type="number" name="quantidade" min="1" value="1" required><br>
 
                 <p>Custo do produto:</p>
-                <input placeholder="Ex: 15,00" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="produto" min="1" value="" required><br>
+                <input placeholder="Ex: 15,00" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="produto" min="1" required><br>
 
                 <p>Imposto da NF-E:</p>
-                <input placeholder="Ex: 4 (sem porcentagem)" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="notaFiscal" min="0" value="" required><br>
+                <input placeholder="Ex: 4 (sem porcentagem)" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="notaFiscal" min="0" required><br>
 
                 <p>Despesas:</p>
-                <input placeholder="Ex: 5,00" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="despesas" min="0" value=""><br>
+                <input placeholder="Ex: 5,00" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="despesas" min="0"><br>
 
                 <p>Valor do frete:</p>
-                <input placeholder=" Ex: 20,00" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="frete" min="0" value=""><br>
+                <input placeholder=" Ex: 20,00" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="frete" min="0"><br>
 
                 <p>Tarifa Clássico:</p>
-                <input placeholder="Ex: 11,5 (sem porcentagem)" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="classico" min="1" value=".5" required><br>
+                <input placeholder="Ex: 11,5 (sem porcentagem)" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="classico" min="1"required><br>
 
                 <p>Tarifa Premium:</p>
-                <input placeholder="Ex: 16,5 (sem porcentagem)" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="premium" min="1" value="" required><br>
+                <input placeholder="Ex: 16,5 (sem porcentagem)" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="premium" min="1" required><br>
 
                 <p>Preço de venda:</p>
-                <input placeholder="Ex: 250,00" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="venda" min="1" value="" required><br>
+                <input placeholder="Ex: 250,00" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="venda" min="1" required><br>
                 <br>
                 <input type="submit" value="Calcular">
                 <input type="reset" value="Limpar">
