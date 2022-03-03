@@ -64,7 +64,7 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
         <div class=calculadora>
             <form name="cad" method="POST" action="">
                 <p>Quantidade:</p>
-                <input placeholder="Ex: 1" type="number" name="quantidade" min="1" value="1" required><br>
+                <input placeholder="Ex: 1" type="number" name="quantidade" min="1" required><br>
 
                 <p>Custo do produto:</p>
                 <input placeholder="Ex: 15,00" pattern="[0-9]+([,\.][0-9]+)?" step="any" type="number" name="produto" min="1" required><br>
@@ -93,7 +93,6 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
                 <div>
                     <h4><?php echo ($_SERVER['REQUEST_METHOD'] == 'POST') ? 'Lucro líquido clássico: R$' . $totalclassico : "" ?></h4>
                     <h4><?php echo ($_SERVER['REQUEST_METHOD'] == 'POST') ? 'Lucro líquido premium: R$' . $totalpremium : "" ?></h4>
-
                 </div>
 
             </form>
