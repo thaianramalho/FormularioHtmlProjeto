@@ -53,8 +53,6 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styile.css"/>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5201865439212405"
-     crossorigin="anonymous"></script>
 
     <title>Calculadora de anúncios</title>
 </head>
