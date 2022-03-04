@@ -65,32 +65,54 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
             <form name="cad" method="POST" action="">
             <fieldset>
                 <legend><b>Calculadora de anúncios</b></legend>
-                <p>Quantidade:</p>
-                <input type="number" name="quantidade" id="quantidade" min="1" required><br>
 
-                <p>Custo do produto:</p>
-                <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="produto" type="number" name="produto" min="1" required><br>
+                <div class="inputBox">
+                    <label for="quantidade" class="labelInput">Quantidade</label>
+                    <input type="number" name="quantidade" id="quantidade" min="1" class="inputUser" required><br>
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <label for="produto" class="labelInput">Custo do produto</label>
+                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="produto" type="number" class="inputUser" name="produto" min="1" required><br>
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <label for="notaFiscal" class="labelInput">Imposto da NF-E</label>
+                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="notaFiscal" type="number" class="inputUser" name="notaFiscal" min="0" required><br>
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <label for="despesas" class="labelInput">Despesas da venda</label>
+                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="despesas" type="number" class="inputUser" name="despesas" min="0"><br>
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <label for="frete" class="labelInput">Valor do frete</label>
+                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="frete" type="number" class="inputUser" name="frete" min="0"><br>
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <label for="classico" class="labelInput">Porcentagem Clássico</label>
+                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="classico" type="number" class="inputUser" name="classico" min="1"required><br>
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <label for="premium" class="labelInput">Porcentagem Premium</label>
+                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="premium" type="number" class="inputUser" name="premium" min="1" required>
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <label for="venda" class="labelInput">Preço de venda</label>
+                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="venda" type="number" class="inputUser" name="venda" min="1" required>
+                </div>
 
-                <p>Imposto da NF-E:</p>
-                <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="notaFiscal" type="number" name="notaFiscal" min="0" required><br>
+                <br><br>
+                <div class="inputBox">
+                    <input type="submit" id="submit" value="Calcular">
+                    <br><br>
+                    <input type="reset" id="limpar" value="Limpar">
+                </div>
 
-                <p>Despesas:</p>
-                <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="despesas" type="number" name="despesas" min="0"><br>
-
-                <p>Valor do frete:</p>
-                <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="frete" type="number" name="frete" min="0"><br>
-
-                <p>Tarifa Clássico:</p>
-                <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="classico" type="number" name="classico" min="1"required><br>
-
-                <p>Tarifa Premium:</p>
-                <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="premium" type="number" name="premium" min="1" required><br>
-
-                <p>Preço de venda:</p>
-                <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="venda" type="number" name="venda" min="1" required><br>
-                <br>
-                <input type="submit" value="Calcular">
-                <input type="reset" value="Limpar">
                 <br><br>
                 <div>
                     <h4><?php echo ($_SERVER['REQUEST_METHOD'] == 'POST') ? 'Lucro líquido clássico: R$' . $totalclassico : "" ?></h4>
