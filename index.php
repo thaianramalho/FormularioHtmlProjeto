@@ -69,32 +69,32 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
                 <br><br>
                 <div class="inputBox">
                     <label for="quantidade" class="labelInput">Quantidade</label>
-                    <input type="number" name="quantidade" id="quantidade" min="1" class="inputUser" required><br>
+                    <input type="number" name="quantidade" id="quantidade" min="1" class="inputUser" required>
                 </div>
                 <br><br>
                 <div class="inputBox">
                     <label for="produto" class="labelInput">Custo do produto</label>
-                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="produto" type="number" class="inputUser" name="produto" min="1" required><br>
+                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="produto" type="number" class="inputUser" name="produto" min="1" required>
                 </div>
                 <br><br>
                 <div class="inputBox">
                     <label for="notaFiscal" class="labelInput">Imposto da NF-E</label>
-                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="notaFiscal" type="number" class="inputUser" name="notaFiscal" min="0" required><br>
+                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="notaFiscal" type="number" class="inputUser" name="notaFiscal" min="0" required>
                 </div>
                 <br><br>
                 <div class="inputBox">
                     <label for="despesas" class="labelInput">Despesas da venda</label>
-                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="despesas" type="number" class="inputUser" name="despesas" min="0"><br>
+                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="despesas" type="number" class="inputUser" name="despesas" min="0">
                 </div>
                 <br><br>
                 <div class="inputBox">
                     <label for="frete" class="labelInput">Valor do frete</label>
-                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="frete" type="number" class="inputUser" name="frete" min="0"><br>
+                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="frete" type="number" class="inputUser" name="frete" min="0">
                 </div>
                 <br><br>
                 <div class="inputBox">
                     <label for="classico" class="labelInput">Porcentagem Clássico</label>
-                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="classico" type="number" class="inputUser" name="classico" min="1"required><br>
+                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="classico" type="number" class="inputUser" name="classico" min="1"required>
                 </div>
                 <br><br>
                 <div class="inputBox">
@@ -115,10 +115,10 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
                 </div>
                 <div class="inputBox">
                     <br>
-                    <input class="inputUser" name="resultadoClassico" readonly>
+                    <input class="inputUserResultado" name="resultadoClassico" readonly>
                     <label for="resultadoClassico"><?php echo ($_SERVER['REQUEST_METHOD'] == 'POST') ? 'Lucro líquido clássico: R$' . $totalclassico : "" ?></label>
                     <br>
-                    <input class="inputUser" name="resultadoPremium" readonly>
+                    <input class="inputUserResultado" name="resultadoPremium" readonly>
                     <label for="resultadoPremium"><?php echo ($_SERVER['REQUEST_METHOD'] == 'POST') ? 'Lucro líquido premium: R$' . $totalpremium : "" ?></label>
                 </div>
             </fieldset>
