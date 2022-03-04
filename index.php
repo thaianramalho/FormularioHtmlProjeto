@@ -55,6 +55,7 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
     <link rel="stylesheet" type="text/css" href="styile.css"/>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5201865439212405"
      crossorigin="anonymous"></script>
+     
 
     <title>Calculadora de anúncios</title>
 </head>
@@ -112,17 +113,17 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
                     <br><br>
                     <input type="reset" id="limpar" value="Limpar">
                 </div>
-
-                <br><br>
-                <div>
-                    <h4><?php echo ($_SERVER['REQUEST_METHOD'] == 'POST') ? 'Lucro líquido clássico: R$' . $totalclassico : "" ?></h4>
-                    <h4><?php echo ($_SERVER['REQUEST_METHOD'] == 'POST') ? 'Lucro líquido premium: R$' . $totalpremium : "" ?></h4>
+                <div class="inputBox">
+                    <br>
+                    <input class="inputUser" name="resultadoClassico" readonly>
+                    <label for="resultadoClassico"><?php echo ($_SERVER['REQUEST_METHOD'] == 'POST') ? 'Lucro líquido clássico: R$' . $totalclassico : "" ?></label>
+                    <br>
+                    <input class="inputUser" name="resultadoPremium" readonly>
+                    <label for="resultadoPremium"><?php echo ($_SERVER['REQUEST_METHOD'] == 'POST') ? 'Lucro líquido premium: R$' . $totalpremium : "" ?></label>
                 </div>
             </fieldset>
             </form>
-
         </div>
     </div>
 </body>
-
 </html>
