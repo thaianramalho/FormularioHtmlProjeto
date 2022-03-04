@@ -65,7 +65,7 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
             <form name="cad" method="POST" action="">
             <fieldset>
                 <legend><b>Calculadora de anúncios</b></legend>
-
+                <br><br>
                 <div class="inputBox">
                     <label for="quantidade" class="labelInput">Quantidade</label>
                     <input type="number" name="quantidade" id="quantidade" min="1" class="inputUser" required><br>

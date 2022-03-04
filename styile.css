@@ -13,7 +13,7 @@ body{
     width: 20%;
 }
 fieldset{
-    border: 3px solid dodgerblue;
+    border: 3px rgba(0, 0, 0, 0.8);
 }
 legend{
     border: 1px solid dodgerblue;
