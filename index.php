@@ -68,43 +68,43 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
                 <legend><b>Calculadora de anúncios</b></legend>
                 <br><br>
                 <div class="inputBox">
-                    <label for="quantidade" class="labelInput">Quantidade</label>
                     <input type="number" name="quantidade" id="quantidade" min="1" class="inputUser" required>
+                    <label for="quantidade" class="labelInput">Quantidade</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <label for="produto" class="labelInput">Custo do produto</label>
                     <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="produto" type="number" class="inputUser" name="produto" min="1" required>
+                    <label for="produto" class="labelInput">Custo do produto</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <label for="notaFiscal" class="labelInput">Imposto da NF-E</label>
                     <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="notaFiscal" type="number" class="inputUser" name="notaFiscal" min="0" required>
+                    <label for="notaFiscal" class="labelInput">Imposto da NF-E</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <label for="despesas" class="labelInput">Despesas da venda</label>
                     <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="despesas" type="number" class="inputUser" name="despesas" min="0">
+                    <label for="despesas" class="labelInput">Despesas da venda</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <label for="frete" class="labelInput">Valor do frete</label>
                     <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="frete" type="number" class="inputUser" name="frete" min="0">
+                    <label for="frete" class="labelInput">Valor do frete</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <label for="classico" class="labelInput">Porcentagem Clássico</label>
                     <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="classico" type="number" class="inputUser" name="classico" min="1"required>
+                    <label for="classico" class="labelInput">Porcentagem Clássico</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <label for="premium" class="labelInput">Porcentagem Premium</label>
                     <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="premium" type="number" class="inputUser" name="premium" min="1" required>
+                    <label for="premium" class="labelInput">Porcentagem Premium</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <label for="venda" class="labelInput">Preço de venda</label>
                     <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="venda" type="number" class="inputUser" name="venda" min="1" required>
+                    <label for="venda" class="labelInput">Preço de venda</label>
                 </div>
 
                 <br><br>
