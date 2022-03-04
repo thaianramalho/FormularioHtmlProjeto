@@ -63,9 +63,9 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
 <body>
     <div class="box">
         <div class=calculadora>
-            <form name="cad" method="POST" action="">
+            <form name="cad" method="POST" action=""><br>
             <fieldset>
-                <legend><b>Calculadora de anúncios</b></legend>
+                <legend>Calculadora de anúncios</legend>
                 <br><br>
                 <div class="inputBox">
                     <input type="number" name="quantidade" id="quantidade" min="1" class="inputUser" required>
@@ -83,12 +83,12 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="despesas" type="number" class="inputUser" name="despesas" min="0">
+                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="despesas" type="number" class="inputUser" name="despesas" min="0" required>
                     <label for="despesas" class="labelInput">Despesas da venda</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="frete" type="number" class="inputUser" name="frete" min="0">
+                    <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="frete" type="number" class="inputUser" name="frete" min="0" required>
                     <label for="frete" class="labelInput">Valor do frete</label>
                 </div>
                 <br><br>
