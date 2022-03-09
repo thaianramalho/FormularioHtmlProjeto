@@ -79,7 +79,7 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
                 <br><br>
                 <div class="inputBox">
                     <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="notaFiscal" type="number" class="inputUser" name="notaFiscal" min="0" required>
-                    <label for="notaFiscal" class="labelInput">Imposto da NF-E</label>
+                    <label for="notaFiscal" class="labelInput">Imposto da NF-E (sem porcentagem)</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
@@ -94,12 +94,12 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
                 <br><br>
                 <div class="inputBox">
                     <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="classico" type="number" class="inputUser" name="classico" min="1"required>
-                    <label for="classico" class="labelInput">Porcentagem Clássico</label>
+                    <label for="classico" class="labelInput">Tarifa Clássico (sem porcentagem)</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
                     <input pattern="[0-9]+([,\.][0-9]+)?" step="any" id="premium" type="number" class="inputUser" name="premium" min="1" required>
-                    <label for="premium" class="labelInput">Porcentagem Premium</label>
+                    <label for="premium" class="labelInput">Tarifa Premium (sem porcentagem)</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
