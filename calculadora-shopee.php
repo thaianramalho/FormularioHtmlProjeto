@@ -1,53 +1,47 @@
 <?php
+// definindo constantes
 define('VALOR_LIMITE_TAXA', 79);
-define('TAXA_VALOR_INFERIOR', 5);
-define('TAXA_VALOR_SUPERIOR', 0);
+define('TAXA_DE_FRETE_SHOPEE', 6);
+// definindo variáveis
 $quantidade = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['quantidade'] : 0;
 $produto = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['produto'] : 0;
 $notaFiscal = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['notaFiscal'] : 0;
-$frete = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['frete'] : 0;
 $despesas = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['despesas'] : 0;
 $SemFrete = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['SemFrete'] : 0;
 $ComFrete = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['ComFrete'] : 0;
 $venda = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['venda'] : 0;
 $custo = $quantidade * $produto;
-
+// definindo variáveis para salvar os valores após submit
 $quantidadeR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['quantidade'] : "";
 $produtoR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['produto'] : "";
 $notaFiscalR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['notaFiscal'] : "";
-$freteR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['frete'] : "";
 $despesasR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['despesas'] : "";
 $SemFreteR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['SemFrete'] : "";
 $ComFreteR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['ComFrete'] : "";
 $vendaR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['venda'] : "";
 
-$calculoSemFrete = calculoAnuncioSemFrete($custo, porcentagem($notaFiscal,$venda), porcentagem($SemFrete, $venda), $frete, $despesas, $venda);
-$totalSemFrete = round($venda - $calculoSemFrete, 2);
+// criando funções
 
-$calculoComFrete = calculoAnuncioComFrete($custo , porcentagem($notaFiscal,$venda), porcentagem($ComFrete, $venda), $frete, $despesas, $venda);
-$totalComFrete = round($venda - $calculoComFrete, 2);
-
+// função de porcentagem
 function porcentagem($porcentagem, $venda){
     return ($porcentagem / 100) * $venda;
 }
 
-function validaLimiteDeTaxa($valorDaVenda)
-{
-    if ($valorDaVenda < VALOR_LIMITE_TAXA) {
-        return TAXA_VALOR_INFERIOR;
-    }
-    return TAXA_VALOR_SUPERIOR;
+// função nota fiscal
+function notaFiscal($notaFiscal, $venda){
+    return ($notaFiscal / 100) * $venda;
 }
 
-function calculoAnuncioSemFrete($custo, $notaFiscalPorcentagem, $SemFretePorcentagem, $frete, $despesas, $venda)
-{
-    return $custo + $notaFiscalPorcentagem + $SemFretePorcentagem + $frete + $despesas + validaLimiteDeTaxa($venda);
+// função do preço sem o programa de frete grátis
+function semFrete($SemFrete, $venda){
+    return ($SemFrete / 100) * $venda;
 }
 
-function calculoAnuncioComFrete($custo, $notaFiscalPorcentagem, $ComFretePorcentagem, $frete, $despesas, $venda)
-{
-    return $custo + $notaFiscalPorcentagem + $ComFretePorcentagem + $frete + $despesas + validaLimiteDeTaxa($venda);
+// calculando o valor da venda sem o frete
+function calculoSemFrete($custo, $notaFiscal, $despesas, $venda){
+    return $venda - ($custo + $notaFiscal + $despesas);
 }
+
 
 
 ?>
@@ -112,9 +106,6 @@ function calculoAnuncioComFrete($custo, $notaFiscalPorcentagem, $ComFretePorcent
             <div class="mb-4 inputBox">
                 <input autocomplete="off" class="border rounded-pill shadow-sm form-control inputUser" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="any" value="<?php echo $despesasR ?>" name="despesas" id="despesas" min="0" required inputmode="numeric" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;">
                 <label for="despesas" class="labelInput">Despesas de venda (R$)</label></div>
-            <div class="mb-4 inputBox">
-                <input autocomplete="off" class="border rounded-pill shadow-sm form-control inputUser" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="any" value="<?php echo $freteR ?>" name="frete" id="frete" min="0" required inputmode="numeric" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;">
-                <label for="frete" class="labelInput">Valor do frete (R$)</label></div>
             <div class="mb-4 inputBox">
                 <input autocomplete="off" class="border rounded-pill shadow-sm form-control inputUser" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="any" value="<?php echo $SemFreteR ?>" name="SemFrete" id="SemFrete" min="0" required inputmode="numeric" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;">
                 <label for="SemFrete" class="labelInput">Tarifa Clássico (%)</label></div>
