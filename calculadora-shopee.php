@@ -3,6 +3,7 @@
 define('VALOR_LIMITE_TAXA', 79);
 define('TAXA_SEM_FRETE_GRATIS', 12);
 define('TAXA_COM_FRETE_GRATIS', 18);
+define('VALOR_LIMITE_COMISSAO_SHOPEE', 100);
 // definindo variáveis
 $quantidade = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['quantidade'] : 0;
 $produto = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['produto'] : 0;
@@ -30,14 +31,21 @@ function porcentagem($porcentagem, $venda){
 function notaFiscal($notaFiscal, $venda){
     return ($notaFiscal / 100) * $venda;
 }
-
+// função da taxa sem frete grátis
 function taxaSemFreteGratis($venda){
     return (TAXA_SEM_FRETE_GRATIS / 100) * $venda;
+}
+// função da taxa com frete grátis
+function taxaComFreteGratis($venda){
+    if ((TAXA_COM_FRETE_GRATIS / 100) * $venda < VALOR_LIMITE_COMISSAO_SHOPEE){
+        return (TAXA_COM_FRETE_GRATIS / 100) * $venda;
+    }
+    return VALOR_LIMITE_COMISSAO_SHOPEE;
 }
 
 $totalSemFrete = $venda - ($custo + notaFiscal($notaFiscal, $venda) + $despesas + taxaSemFreteGratis($venda));
 
-$totalComFrete = $venda - 1;
+$totalComFrete = $venda - ($custo + notaFiscal($notaFiscal, $venda) + $despesas + taxaComFreteGratis($venda));
 ?>
 
 <!DOCTYPE html>
