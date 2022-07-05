@@ -1,13 +1,12 @@
 <?php
-define('VALOR_LIMITE_TAXA', 79);
-define('TAXA_VALOR_INFERIOR', 5);
-define('TAXA_VALOR_SUPERIOR', 0);
+define('VALOR_LIMITE_TAXA', 850);
 $quantidade = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['quantidade'] : 0;
 $produto = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['produto'] : 0;
 $notaFiscal = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['notaFiscal'] : 0;
 $frete = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['frete'] : 0;
 $despesas = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['despesas'] : 0;
-$classico = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['classico'] : 0;
+$SemFrete = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['SemFrete'] : 0;
+$ComFrete = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['ComFrete'] : 0;
 $venda = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['venda'] : 0;
 $custo = $quantidade * $produto;
 
@@ -16,28 +15,30 @@ $produtoR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['produto'] : "";
 $notaFiscalR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['notaFiscal'] : "";
 $freteR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['frete'] : "";
 $despesasR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['despesas'] : "";
-$classicoR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['classico'] : "";
+$SemFreteR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['SemFrete'] : "";
+$ComFreteR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['ComFrete'] : "";
 $vendaR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['venda'] : "";
 
-$calculoclassico = calculoAnuncioClassico($custo, porcentagem($notaFiscal,$venda), porcentagem($classico, $venda), $frete, $despesas, $venda);
-$totalclassico = round($venda - $calculoclassico, 2);
+$calculoSemFrete = calculoAnuncioSemFrete($custo, porcentagem($notaFiscal,$venda), porcentagem($SemFrete, $venda), $frete, $despesas, $venda);
+$totalSemFrete = round($venda - $calculoSemFrete, 2);
+
+$calculoComFrete = calculoAnuncioComFrete($custo , porcentagem($notaFiscal,$venda), porcentagem($ComFrete, $venda), $frete, $despesas, $venda);
+$totalComFrete = round($venda - $calculoComFrete, 2);
 
 function porcentagem($porcentagem, $venda){
     return ($porcentagem / 100) * $venda;
 }
 
-function validaLimiteDeTaxa($valorDaVenda)
+function calculoAnuncioSFrete($custo, $notaFiscalPorcentagem, $SemFretePorcentagem, $frete, $despesas, $venda)
 {
-    if ($valorDaVenda < VALOR_LIMITE_TAXA) {
-        return TAXA_VALOR_INFERIOR;
-    }
-    return TAXA_VALOR_SUPERIOR;
+    return $custo + $notaFiscalPorcentagem + $SemFretePorcentagem + $frete + $despesas + validaLimiteDeTaxa($venda);
 }
 
-function calculoAnuncioClassico($custo, $notaFiscalPorcentagem, $classicoPorcentagem, $frete, $despesas, $venda)
+function calculoAnuncioComFrete($custo, $notaFiscalPorcentagem, $ComFretePorcentagem, $frete, $despesas, $venda)
 {
-    return $custo + $notaFiscalPorcentagem + $classicoPorcentagem + $frete + $despesas + validaLimiteDeTaxa($venda);
+    return $custo + $notaFiscalPorcentagem + $ComFretePorcentagem + $frete + $despesas + validaLimiteDeTaxa($venda);
 }
+
 
 ?>
 
@@ -47,7 +48,7 @@ function calculoAnuncioClassico($custo, $notaFiscalPorcentagem, $classicoPorcent
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Calculadora ML</title>
+    <title>Calculadora Shopee</title>
     <meta name="theme-color" content="#5850fe">
     <link rel="icon" type="image/png" sizes="640x426" href="assets/img/ML%20Logo.png">
     <link rel="icon" type="image/png" sizes="640x426" href="assets/img/Excel%20logo.png">
@@ -105,11 +106,11 @@ function calculoAnuncioClassico($custo, $notaFiscalPorcentagem, $classicoPorcent
                 <input autocomplete="off" class="border rounded-pill shadow-sm form-control inputUser" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="any" value="<?php echo $freteR ?>" name="frete" id="frete" min="0" required inputmode="numeric" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;">
                 <label for="frete" class="labelInput">Valor do frete (R$)</label></div>
             <div class="mb-4 inputBox">
-                <input autocomplete="off" class="border rounded-pill shadow-sm form-control inputUser" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="any" value="<?php echo $classicoR ?>" name="classico" id="classico" min="0" required inputmode="numeric" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;">
-                <label for="classico" class="labelInput">Tarifa Clássico (%)</label></div>
+                <input autocomplete="off" class="border rounded-pill shadow-sm form-control inputUser" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="any" value="<?php echo $SemFreteR ?>" name="SemFrete" id="SemFrete" min="0" required inputmode="numeric" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;">
+                <label for="SemFrete" class="labelInput">Tarifa Clássico (%)</label></div>
             <div class="mb-4 inputBox">
-                <input autocomplete="off" class="border rounded-pill shadow-sm form-control inputUser" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="any" value="<?php echo $premiumR ?>" name="premium" id="premium" min="0" required inputmode="numeric" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;">
-                <label for="premium" class="labelInput">Tarifa Premium (%)</label></div>
+                <input autocomplete="off" class="border rounded-pill shadow-sm form-control inputUser" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="any" value="<?php echo $ComFreteR ?>" name="ComFrete" id="ComFrete" min="0" required inputmode="numeric" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;">
+                <label for="ComFrete" class="labelInput">Tarifa ComFrete (%)</label></div>
             <div class="mb-4 inputBox">
                 <input autocomplete="off" class="border rounded-pill shadow-sm form-control inputUser" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="any" value="<?php echo $vendaR ?>" name="venda" id="venda" min="0" required inputmode="numeric" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;" min="1">
                 <label for="venda" class="labelInput">Valor do anúncio (R$)</label></div>
@@ -120,12 +121,12 @@ function calculoAnuncioClassico($custo, $notaFiscalPorcentagem, $classicoPorcent
                 <div class="mb-5 inputBox">
                     <div class="inputUserResultado inputBox">
                         <p class="smallTitle">Sem frete grátis - (Lucro líquido)</p>
-                        <input class="border rounded-pill shadow-sm form-control mb-4" readonly name="resultadoClassico" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;">
-                        <b><label for="resultadoClassico" class="resultadoInput"><?php echo ($_SERVER['REQUEST_METHOD'] == 'POST') ? 'R$'.$totalclassico : "" ?></label></b></div>
+                        <input class="border rounded-pill shadow-sm form-control mb-4" readonly name="resultadoSemFrete" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;">
+                        <b><label for="resultadoSemFrete" class="resultadoInput"><?php echo ($_SERVER['REQUEST_METHOD'] == 'POST') ? 'R$'.$totalSemFrete : "" ?></label></b></div>
                         <div class="inputUserResultado inputBox">
                         <p class="smallTitle">Com frete grátis - (Lucro líquido)</p>
-                        <input class="mb-4 border rounded-pill shadow-sm form-control" readonly name="resultadoPremium" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;">
-                        <b><label for="resultadoPremium" class="resultadoInput"><?php echo ($_SERVER['REQUEST_METHOD'] == 'POST') ? 'R$'.$totalpremium : "" ?></label><b></div>
+                        <input class="mb-4 border rounded-pill shadow-sm form-control" readonly name="resultadoComFrete" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;">
+                        <b><label for="resultadoComFrete" class="resultadoInput"><?php echo ($_SERVER['REQUEST_METHOD'] == 'POST') ? 'R$'.$totalComFrete : "" ?></label><b></div>
                 </div>
             </section>
         </form>
