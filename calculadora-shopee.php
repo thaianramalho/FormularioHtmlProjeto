@@ -1,5 +1,7 @@
 <?php
-define('VALOR_LIMITE_TAXA', 850);
+define('VALOR_LIMITE_TAXA', 79);
+define('TAXA_VALOR_INFERIOR', 5);
+define('TAXA_VALOR_SUPERIOR', 0);
 $quantidade = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['quantidade'] : 0;
 $produto = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['produto'] : 0;
 $notaFiscal = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['notaFiscal'] : 0;
@@ -29,7 +31,15 @@ function porcentagem($porcentagem, $venda){
     return ($porcentagem / 100) * $venda;
 }
 
-function calculoAnuncioSFrete($custo, $notaFiscalPorcentagem, $SemFretePorcentagem, $frete, $despesas, $venda)
+function validaLimiteDeTaxa($valorDaVenda)
+{
+    if ($valorDaVenda < VALOR_LIMITE_TAXA) {
+        return TAXA_VALOR_INFERIOR;
+    }
+    return TAXA_VALOR_SUPERIOR;
+}
+
+function calculoAnuncioSemFrete($custo, $notaFiscalPorcentagem, $SemFretePorcentagem, $frete, $despesas, $venda)
 {
     return $custo + $notaFiscalPorcentagem + $SemFretePorcentagem + $frete + $despesas + validaLimiteDeTaxa($venda);
 }
