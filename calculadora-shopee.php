@@ -20,32 +20,24 @@ $vendaR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['venda'] : "";
 
 // criando funções
 
-// Conta: Preço de venda - (Preço de custo + Porcentagem da nota referente ao preço de venda + Despesas + Taxa Shopee 12% ou 18%)
+//Conta: Preço de venda - (Preço de custo + Porcentagem da nota referente ao preço de venda + Despesas + Taxa Shopee 12% ou 18%)
 
 // função de porcentagem
 function porcentagem($porcentagem, $venda){
     return ($porcentagem / 100) * $venda;
 }
 
-// função nota fiscal
-function notaFiscal($notaFiscal, $venda){
-    return ($notaFiscal / 100) * $venda;
-}
-// função da taxa sem frete grátis
-function taxaSemFreteGratis($venda){
-    return (TAXA_SEM_FRETE_GRATIS / 100) * $venda;
-}
 // função da taxa com frete grátis
 function taxaComFreteGratis($venda){
-    if ((TAXA_COM_FRETE_GRATIS / 100) * $venda < VALOR_LIMITE_COMISSAO_SHOPEE){
+    if (((TAXA_COM_FRETE_GRATIS / 100) * $venda) < VALOR_LIMITE_COMISSAO_SHOPEE){
         return (TAXA_COM_FRETE_GRATIS / 100) * $venda;
     }
     return VALOR_LIMITE_COMISSAO_SHOPEE;
 }
 
-$totalSemFrete = $venda - ($custo + notaFiscal($notaFiscal, $venda) + $despesas + taxaSemFreteGratis($venda));
+$totalSemFrete = $venda - ($custo + porcentagem($notaFiscal, $venda) + $despesas + porcentagem(TAXA_SEM_FRETE_GRATIS, $venda));
 
-$totalComFrete = $venda - ($custo + notaFiscal($notaFiscal, $venda) + $despesas + taxaComFreteGratis($venda));
+$totalComFrete = $venda - ($custo + porcentagem($notaFiscal, $venda) + $despesas + porcentagem(TAXA_COM_FRETE_GRATIS, $venda));
 ?>
 
 <!DOCTYPE html>
