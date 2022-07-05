@@ -126,9 +126,9 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
                 <label for="venda" class="labelInput">Valor do anúncio (R$)</label></div>
             <div class="mb-4 inputBox">
                 <button class="btn btn-primary d-block w-100" type="submit" id="submit" style="background: #5850fe;">Calcular</button></div>
-                <!-- <button class="mb-5 btn btn-primary d-block w-100" type="reset" style="background: #5850fe;margin: 5px 0px 0px;">Limpar</button> -->
+                <!-- <button class="mb-5 btn btn-primary d-block w-100" type="reset" style="background: #5850fe;margin: 5px 0px 0px;">Limpar</button> --><br>
             <section id="resultado">
-                <div class="mb-4 inputBox">
+                <div class="mb-5 inputBox">
                     <div class="inputUserResultado inputBox">
                         <p class="smallTitle">Clássico - (Lucro líquido)</p>
                         <input class="border rounded-pill shadow-sm form-control mb-4" readonly name="resultadoClassico" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;">
