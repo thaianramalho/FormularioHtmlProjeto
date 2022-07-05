@@ -1,14 +1,13 @@
 <?php
 // definindo constantes
 define('VALOR_LIMITE_TAXA', 79);
-define('TAXA_DE_FRETE_SHOPEE', 6);
+define('TAXA_SEM_FRETE_GRATIS', 12);
+define('TAXA_COM_FRETE_GRATIS', 18);
 // definindo variáveis
 $quantidade = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['quantidade'] : 0;
 $produto = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['produto'] : 0;
 $notaFiscal = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['notaFiscal'] : 0;
 $despesas = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['despesas'] : 0;
-$SemFrete = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['SemFrete'] : 0;
-$ComFrete = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['ComFrete'] : 0;
 $venda = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['venda'] : 0;
 $custo = $quantidade * $produto;
 // definindo variáveis para salvar os valores após submit
@@ -16,11 +15,11 @@ $quantidadeR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['quantidade'] : "
 $produtoR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['produto'] : "";
 $notaFiscalR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['notaFiscal'] : "";
 $despesasR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['despesas'] : "";
-$SemFreteR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['SemFrete'] : "";
-$ComFreteR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['ComFrete'] : "";
 $vendaR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['venda'] : "";
 
 // criando funções
+
+// Conta: Preço de venda - (Preço de custo + Porcentagem da nota referente ao preço de venda + Despesas + Taxa Shopee 12% ou 18%)
 
 // função de porcentagem
 function porcentagem($porcentagem, $venda){
@@ -32,18 +31,13 @@ function notaFiscal($notaFiscal, $venda){
     return ($notaFiscal / 100) * $venda;
 }
 
-// função do preço sem o programa de frete grátis
-function semFrete($SemFrete, $venda){
-    return ($SemFrete / 100) * $venda;
+function taxaSemFreteGratis($venda){
+    return (TAXA_SEM_FRETE_GRATIS / 100) * $venda;
 }
 
-// calculando o valor da venda sem o frete
-function calculoSemFrete($custo, $notaFiscal, $despesas, $venda){
-    return $venda - ($custo + $notaFiscal + $despesas);
-}
+$totalSemFrete = $venda - ($custo + notaFiscal($notaFiscal, $venda) + $despesas + taxaSemFreteGratis($venda));
 
-
-
+$totalComFrete = $venda - 1;
 ?>
 
 <!DOCTYPE html>
@@ -106,12 +100,6 @@ function calculoSemFrete($custo, $notaFiscal, $despesas, $venda){
             <div class="mb-4 inputBox">
                 <input autocomplete="off" class="border rounded-pill shadow-sm form-control inputUser" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="any" value="<?php echo $despesasR ?>" name="despesas" id="despesas" min="0" required inputmode="numeric" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;">
                 <label for="despesas" class="labelInput">Despesas de venda (R$)</label></div>
-            <div class="mb-4 inputBox">
-                <input autocomplete="off" class="border rounded-pill shadow-sm form-control inputUser" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="any" value="<?php echo $SemFreteR ?>" name="SemFrete" id="SemFrete" min="0" required inputmode="numeric" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;">
-                <label for="SemFrete" class="labelInput">Tarifa Clássico (%)</label></div>
-            <div class="mb-4 inputBox">
-                <input autocomplete="off" class="border rounded-pill shadow-sm form-control inputUser" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="any" value="<?php echo $ComFreteR ?>" name="ComFrete" id="ComFrete" min="0" required inputmode="numeric" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;">
-                <label for="ComFrete" class="labelInput">Tarifa ComFrete (%)</label></div>
             <div class="mb-4 inputBox">
                 <input autocomplete="off" class="border rounded-pill shadow-sm form-control inputUser" type="number" pattern="[0-9]+([,\.][0-9]+)?" step="any" value="<?php echo $vendaR ?>" name="venda" id="venda" min="0" required inputmode="numeric" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;" min="1">
                 <label for="venda" class="labelInput">Valor do anúncio (R$)</label></div>
