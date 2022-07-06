@@ -23,8 +23,8 @@ $vendaR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['venda'] : "";
 //Conta: Preço de venda + Frete - (Preço de custo + Porcentagem da nota referente ao preço de venda + frete + Despesas + Taxa 16% referente a frete + venda)
 
 // função de porcentagem (usada na nota fiscal)
-function porcentagem($porcentagem, $venda){
-    return ($porcentagem / 100) * ($venda);
+function porcentagem($porcentagem, $venda, $frete){
+    return ($porcentagem / 100) * ($venda + $frete);
 }
 
 //função da taxa da b2w
@@ -33,9 +33,7 @@ function taxab2w($venda, $frete){
 }
 
 // inserindo cálculos em variáveis
-$totalSemFrete = number_format(($venda - ($custo + porcentagem($notaFiscal, $venda) + $despesas)), 2);
-
-$totalComFrete = number_format(($venda - ($custo + porcentagem($notaFiscal, $venda) + $despesas)), 2);
+$valorAnuncio = number_format(($venda - ($custo + porcentagem($notaFiscal, $venda, $frete) + $despesas + $frete + taxab2w($venda, $frete))), 2);
 ?>
 
 <!DOCTYPE html>
@@ -112,11 +110,7 @@ $totalComFrete = number_format(($venda - ($custo + porcentagem($notaFiscal, $ven
                     <div class="inputUserResultado inputBox">
                         <p class="smallTitle">Lucro líquido do anúncio</p>
                         <input class="border rounded-pill shadow-sm form-control mb-4" readonly name="resultadoSemFrete" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;">
-                        <b><label for="resultadoSemFrete" class="resultadoInput"><?php echo ($_SERVER['REQUEST_METHOD'] == 'POST') ? 'R$'.$totalSemFrete : "" ?></label></b></div>
-                        <!-- <div class="inputUserResultado inputBox">
-                        <p class="smallTitle">Com frete grátis - (Lucro líquido)</p>
-                        <input class="mb-4 border rounded-pill shadow-sm form-control" readonly name="resultadoComFrete" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;">
-                        <b><label for="resultadoComFrete" class="resultadoInput"><?php echo ($_SERVER['REQUEST_METHOD'] == 'POST') ? 'R$'.$totalComFrete : "" ?></label><b></div> -->
+                        <b><label for="resultadoSemFrete" class="resultadoInput"><?php echo ($_SERVER['REQUEST_METHOD'] == 'POST') ? 'R$'.$valorAnuncio : "" ?></label></b></div>
                 </div>
             </section>
         </form>
