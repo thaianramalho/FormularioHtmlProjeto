@@ -43,9 +43,9 @@ function taxaComFreteGratis($venda){
 }
 
 // inserindo cálculos em variáveis
-$totalSemFrete = round ($venda - ($custo + porcentagem($notaFiscal, $venda) + $despesas + taxaSemFreteGratis($venda)), 2);
+$totalSemFrete = number_format(($venda - ($custo + porcentagem($notaFiscal, $venda) + $despesas + taxaSemFreteGratis($venda))), 2);
 
-$totalComFrete = round ($venda - ($custo + porcentagem($notaFiscal, $venda) + $despesas + taxaComFreteGratis($venda)), 2);
+$totalComFrete = number_format(($venda - ($custo + porcentagem($notaFiscal, $venda) + $despesas + taxaComFreteGratis($venda))), 2);
 ?>
 
 <!DOCTYPE html>

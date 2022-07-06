@@ -22,10 +22,10 @@ $premiumR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['premium'] : "";
 $vendaR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['venda'] : "";
 
 $calculoclassico = calculoAnuncioClassico($custo, porcentagem($notaFiscal,$venda), porcentagem($classico, $venda), $frete, $despesas, $venda);
-$totalclassico = round($venda - $calculoclassico, 2);
+$totalclassico = number_format(($venda - $calculoclassico), 2);
 
 $calculopremium = calculoAnuncioPremium($custo , porcentagem($notaFiscal,$venda), porcentagem($premium, $venda), $frete, $despesas, $venda);
-$totalpremium = round($venda - $calculopremium, 2);
+$totalpremium = number_format(($venda - $calculopremium), 2);
 
 // função de porcentagem (usada na nota fiscal)
 function porcentagem($porcentagem, $venda){
