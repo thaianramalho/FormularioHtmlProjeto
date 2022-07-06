@@ -89,8 +89,8 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
                     <li class="nav-item"><a class="nav-link" href="ferramentas.html">Ferramentas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
                 </ul>
             </div>
         </div>
@@ -143,10 +143,7 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
     </section>
     <footer class="footer-basic" style="background: rgb(241,247,252);">
         <div class="social">
-            <a href="#"><i class="icon ion-social-instagram"></i></a>
-            <a href="#"><i class="icon ion-social-snapchat"></i></a>
-            <a href="#"><i class="icon ion-social-twitter"></i></a>
-            <a href="#"><i class="icon ion-social-facebook"></i></a>
+            <!-- <a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a> -->
         </div>
         <ul class="list-inline">
             <li class="list-inline-item"><a href="index.html">Início</a></li>
