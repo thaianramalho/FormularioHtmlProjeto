@@ -50,8 +50,6 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
 {
     return $custo + $notaFiscalPorcentagem + $premiumPorcentagem + $frete + $despesas + validaLimiteDeTaxa($venda);
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +58,7 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Calculadora ML</title>
+    <title>Calculadora Mercado Livre</title>
     <meta name="theme-color" content="#5850fe">
     <link rel="icon" type="image/png" sizes="640x426" href="assets/img/ML%20Logo.png">
     <link rel="icon" type="image/png" sizes="640x426" href="assets/img/Excel%20logo.png">
