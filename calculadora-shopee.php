@@ -22,9 +22,17 @@ $vendaR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['venda'] : "";
 
 //Conta: Preço de venda - (Preço de custo + Porcentagem da nota referente ao preço de venda + Despesas + Taxa Shopee 12% ou 18%)
 
-// função de porcentagem (usada na taxa sem frete grátis e na nota fiscal)
+// função de porcentagem (usada na nota fiscal)
 function porcentagem($porcentagem, $venda){
     return ($porcentagem / 100) * $venda;
+}
+
+// função da taxa sem frete grátis
+function taxaSemFreteGratis($venda){
+    if ((TAXA_SEM_FRETE_GRATIS / 100) * $venda < VALOR_LIMITE_COMISSAO_SHOPEE){
+        return (TAXA_SEM_FRETE_GRATIS / 100) * $venda;
+    }
+    return VALOR_LIMITE_COMISSAO_SHOPEE;
 }
 
 // função da taxa com frete grátis
@@ -35,7 +43,7 @@ function taxaComFreteGratis($venda){
     return VALOR_LIMITE_COMISSAO_SHOPEE;
 }
 
-$totalSemFrete = $venda - ($custo + porcentagem($notaFiscal, $venda) + $despesas + porcentagem(TAXA_SEM_FRETE_GRATIS, $venda));
+$totalSemFrete = $venda - ($custo + porcentagem($notaFiscal, $venda) + $despesas + taxaSemFreteGratis($venda));
 
 $totalComFrete = $venda - ($custo + porcentagem($notaFiscal, $venda) + $despesas + taxaComFreteGratis($venda));
 ?>
