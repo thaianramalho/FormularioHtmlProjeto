@@ -93,7 +93,7 @@ $totalComFrete = round ($venda - ($custo + porcentagem($notaFiscal, $venda) + $d
     </nav>
     <section class="login-clean" title="Quantidade" style="background: rgb(241, 247, 252);">
         <form method="post" name="cad" action="#resultado">
-            <h2 class="visually-hidden">Login Form</h2>
+            <h2 class="text-center">Calculadora Shopee</h2>
             <div class="illustration">
                 <i class="icon ion-ios-calculator" style="border-color: #5850fe;color: #5850fe;"></i></div>
             <div class="mb-4 inputBox">
