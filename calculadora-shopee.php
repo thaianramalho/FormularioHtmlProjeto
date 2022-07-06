@@ -22,7 +22,7 @@ $vendaR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['venda'] : "";
 
 //Conta: Preço de venda - (Preço de custo + Porcentagem da nota referente ao preço de venda + Despesas + Taxa Shopee 12% ou 18%)
 
-// função de porcentagem
+// função de porcentagem (usada na taxa sem frete grátis e na nota fiscal)
 function porcentagem($porcentagem, $venda){
     return ($porcentagem / 100) * $venda;
 }
