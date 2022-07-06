@@ -11,14 +11,13 @@ $notaFiscal = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['notaFiscal'] : 0;
 $despesas = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['despesas'] : 0;
 $venda = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['venda'] : 0;
 $custo = $quantidade * $produto;
-// definindo variáveis para salvar os valores após submit
+
+// variáveis criadas apenas para salvar os valores dos inputs e não resetar os valores dos inputs após clicar em submit
 $quantidadeR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['quantidade'] : "";
 $produtoR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['produto'] : "";
 $notaFiscalR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['notaFiscal'] : "";
 $despesasR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['despesas'] : "";
 $vendaR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['venda'] : "";
-
-// criando funções
 
 //Conta: Preço de venda - (Preço de custo + Porcentagem da nota referente ao preço de venda + Despesas + Taxa Shopee 12% ou 18%)
 
@@ -43,6 +42,7 @@ function taxaComFreteGratis($venda){
     return VALOR_LIMITE_COMISSAO_SHOPEE;
 }
 
+// inserindo cálculos em variáveis
 $totalSemFrete = $venda - ($custo + porcentagem($notaFiscal, $venda) + $despesas + taxaSemFreteGratis($venda));
 
 $totalComFrete = $venda - ($custo + porcentagem($notaFiscal, $venda) + $despesas + taxaComFreteGratis($venda));
