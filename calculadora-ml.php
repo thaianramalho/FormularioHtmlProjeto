@@ -97,10 +97,11 @@ function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentag
     </nav>
     <section class="login-clean" title="Quantidade" style="background: rgb(241, 247, 252);">
         <form method="post" name="cad" action="#resultado">
-            <h2 class="visually-hidden">Login Form</h2>
+            <h2 class="text-center">Calculadora Mercado Livre</h2>
+
             <div class="illustration">
                 <i class="icon ion-ios-calculator" style="border-color: #5850fe;color: #5850fe;"></i></div>
-            <div class="mb-4 inputBox">
+                <div class="mb-4 inputBox">
                 <input autocomplete="off" class="border rounded-pill shadow-sm form-control inputUser" type="number" name="quantidade" id="quantidade" min="0" value="<?php echo $quantidadeR ?>" required inputmode="numeric" style="border-color: #5850fe;--bs-primary: #5850fe;--bs-primary-rgb: 88,80,254;" min="1">
                 <label for="quantidade" class="labelInput">Quantidade</label></div>
             <div class="mb-4 inputBox">
