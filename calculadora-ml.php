@@ -11,7 +11,7 @@ $classico = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['classico'] : 0;
 $premium = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['premium'] : 0;
 $venda = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['venda'] : 0;
 $custo = $quantidade * $produto;
-
+// variáveis criadas apenas para salvar os valores dos inputs e não resetar os valores dos inputs após clicar em submit
 $quantidadeR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['quantidade'] : "";
 $produtoR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['produto'] : "";
 $notaFiscalR = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST['notaFiscal'] : "";
@@ -27,10 +27,12 @@ $totalclassico = round($venda - $calculoclassico, 2);
 $calculopremium = calculoAnuncioPremium($custo , porcentagem($notaFiscal,$venda), porcentagem($premium, $venda), $frete, $despesas, $venda);
 $totalpremium = round($venda - $calculopremium, 2);
 
+// função de porcentagem (usada na nota fiscal)
 function porcentagem($porcentagem, $venda){
     return ($porcentagem / 100) * $venda;
 }
 
+// função que valida o limite do valor da taxa do mercado livre (a partir de 79 reais ele para de cobrar 5 reais de taxa)
 function validaLimiteDeTaxa($valorDaVenda)
 {
     if ($valorDaVenda < VALOR_LIMITE_TAXA) {
@@ -38,12 +40,12 @@ function validaLimiteDeTaxa($valorDaVenda)
     }
     return TAXA_VALOR_SUPERIOR;
 }
-
+//calculando anuncio no plano clássico
 function calculoAnuncioClassico($custo, $notaFiscalPorcentagem, $classicoPorcentagem, $frete, $despesas, $venda)
 {
     return $custo + $notaFiscalPorcentagem + $classicoPorcentagem + $frete + $despesas + validaLimiteDeTaxa($venda);
 }
-
+//calculando anuncio no plano premium
 function calculoAnuncioPremium($custo, $notaFiscalPorcentagem, $premiumPorcentagem, $frete, $despesas, $venda)
 {
     return $custo + $notaFiscalPorcentagem + $premiumPorcentagem + $frete + $despesas + validaLimiteDeTaxa($venda);
