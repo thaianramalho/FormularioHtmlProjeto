@@ -81,10 +81,10 @@ $totalComFrete = number_format(($venda - ($custo + porcentagem($notaFiscal, $ven
 
 <body>
     <nav class="navbar navbar-light navbar-expand-lg navigation-clean" style="background: rgb(241,247,252);">
-        <div class="container"><a class="navbar-brand" href="index.html">Cálculo Fácil</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand" href="index.php">Cálculo Fácil</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php">Início</a></li>
                     <li class="nav-item"><a class="nav-link" href="ferramentas.html">Ferramentas</a></li>
                     <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
                 </ul>
@@ -133,7 +133,7 @@ $totalComFrete = number_format(($venda - ($custo + porcentagem($notaFiscal, $ven
             <!-- <a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a> -->
         </div>
         <ul class="list-inline">
-            <li class="list-inline-item"><a href="index.html">Início</a></li>
+            <li class="list-inline-item"><a href="index.php">Início</a></li>
             <li class="list-inline-item"><a href="ferramentas.html">Ferramentas</a></li>
             <li class="list-inline-item"><a href="contato.html">Contato</a></li>
         </ul>
