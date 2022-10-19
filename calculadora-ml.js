@@ -12,8 +12,6 @@ const valorLimiteTaxa = 79;
 const taxaValorSuperior = 0;
 const taxaValorInferior = 5;
 
-// --------------- Funções ---------------
-
 function calculoAnuncioClassico(custo, notaFiscalPorcentagem, classicoPorcentagem, frete, despesas, venda){
     return custo + notaFiscalPorcentagem + classicoPorcentagem + frete + despesas + validaLimiteDeTaxa(venda);
 }

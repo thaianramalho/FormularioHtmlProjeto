@@ -1,10 +1,8 @@
-// constantes
 const valorLimiteTaxa = 79;
 const taxaSemFreteGratis = 12;
 const taxaComFreteGratis = 18;
 const valorLimiteComissaoShopee = 18;
 
-// definindo variáveis
 var quantidade = document.getElementsByName("quantidade");
 var produto = document.getElementsByName("produto");
 var notaFiscal = document.getElementsByName("imposto");
@@ -19,7 +17,6 @@ function porcentagem(porcentagem, venda){
     return (porcentagem / 100) * venda;
 }
 
-// função da taxa sem frete grátis
 function taxaSemFreteGratis(venda){
     if ((taxaSemFreteGratis / 100) * venda < valorLimiteComissaoShopee){
         return (taxaSemFreteGratis / 100) * venda;
@@ -27,7 +24,6 @@ function taxaSemFreteGratis(venda){
     return valorLimiteComissaoShopee;
 }
 
-// função da taxa com frete grátis
 function taxaComFreteGratis(venda){
     if ((taxaComFreteGratis / 100) * venda < valorLimiteComissaoShopee){
         return (taxaComFreteGratis / 100) * venda;
