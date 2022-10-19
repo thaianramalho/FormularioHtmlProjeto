@@ -1,4 +1,4 @@
-var quantidade = document.getElementsByName("quantidade")
+var quantidade = document.getElementsByName("quantidade");
 var notaFiscal = document.getElementsByName("imposto");
 var despesas = document.getElementsByName("despesas");
 var frete = document.getElementsByName("frete");
